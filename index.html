@@ -10,12 +10,18 @@
         src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
     <script>
         const root = document.getElementById("root");
-        const h3 = React.createElement("h3", {
+        const Title = <h3 id="title" onMouseEnter={() => console.log("Mouse Enter")}>Hello I'm a title</h3> // JSX문법
+        /* const h3 = React.createElement("h3", {
             id: "title",
             onMouseEnter: () => console.log("mouse enter")
-        }, "Hello, I'm a h3."); // 첫번째 argument는 HTML 태그, 두번째 argument는 property(속성), 세번째 argument는 내용
+        }, "Hello, I'm a h3.");  */
+        // 첫번째 argument는 HTML 태그, 두번째 argument는 property(속성), 세번째 argument는 content(내용)
+        const Button = <button style={{backgroundColor: "pink"}} onClick={() => console.log("I'm clicked.")}>Click me!</button>
         const btn = React.createElement("button", {
-            onClick: () => console.log("I'm clicked.")
+            onClick: () => console.log("I'm clicked."),
+            style: {
+                backgroundColor: "pink",
+            }
         }, "Click me!"); // property에 이벤트를 줄 수 있음.
         const container = React.createElement("div", null, [h3, btn]);
         ReactDOM.render(container, root); // render : 사용자에게 보여주다
